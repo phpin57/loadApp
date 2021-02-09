@@ -1,0 +1,1216 @@
+<Setup>:
+	BoxLayout:
+		orientation:"vertical"
+		Label:
+			font_size: 30
+			text: 'Données à saisir'
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'APM (kg)'
+			TextInput:
+				id: APM
+				multiline: False
+				text:'80000'
+			Label:
+				font_size: 15
+				text: 'APM CG (%)'
+			TextInput:
+				id: APMCG
+				multiline: False
+				text:'30'
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'fuel (kg)'
+			TextInput:
+				id: fuel
+				multiline: False
+				text:'10000'
+			Label:
+				font_size: 15
+				text: 'conso (kg)'
+			TextInput:
+				id: fuel_conso
+				multiline: False
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'mode de vol'
+			Spinner: 
+				id: spinner_vol
+				text: "LH"
+				values: ["LH", "TLL1"]
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'Version siège'
+			Spinner: 
+				id: version_lat
+				text: "aucune"
+				values: ["aucune", "version log", "6*25", "6*29"]
+			Label:
+				font_size: 15
+				text: 'nombre de bloc au centre'
+			Spinner: 
+				id: nb_bloc
+				text: "0"
+				values: ["0","1","2","3","4","5","6"]
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				text: 'Indication des shearing & bending'
+				font_size: 15
+			CheckBox:
+				on_active: root.shearing_and_bending()
+				id : chk_shear
+			Button:
+				font_size: 15
+				text: "Shearing\n And Bending"
+				on_press: root.shearing_and_bending()
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'masse équipement (kg)'
+			TextInput:
+				id: equipement
+				multiline: False
+				text:"500"
+		Label:
+			font_size: 30
+			text: 'Items classe II'
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				text: 'Blindage'
+				text_size: self.size
+			CheckBox:
+				id : chk_blindage
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				text: 'Full medevac'
+				text_size: self.size
+			CheckBox:
+				id : chk_medevac
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				text: 'HDU'
+				text_size: self.size
+			CheckBox:
+				id : chk_hdu
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				text: 'Crane'
+				text_size: self.size
+			CheckBox:
+				id : chk_crane
+
+		Button:
+			font_size: 15
+			text: 'Valider'
+			on_press:root.valider()
+
+<ShearingAndBending>
+	BoxLayout:
+		orientation:"vertical"
+		BoxLayout:
+			size_hint_y: 0.5
+			orientation:"horizontal"
+			Button:
+				font_size: 15
+				text: "Retour"
+				on_press: root.retour()
+			Button:
+				font_size: 15
+				text: "Valider"
+				on_press: root.valider()
+		Label:
+			size_hint_y: 0.3
+			font_size: 15
+			text: 'Shear à vide'
+		
+		BoxLayout:
+			size_hint_y: 0.3
+			orientation:"horizontal"
+			TextInput:
+				id: shear1
+				multiline: False              
+			TextInput:
+				id: shear2
+				multiline: False              
+			TextInput:
+				id: shear3
+				multiline: False              
+			TextInput:
+				id: shear4
+				multiline: False              
+			TextInput:
+				id: shear5
+				multiline: False              
+			TextInput:
+				id: shear6
+				multiline: False              
+			TextInput:
+				id: shear7
+				multiline: False              
+			TextInput:
+				id: shear8
+				multiline: False              
+			TextInput:
+				id: shear9
+				multiline: False
+		Label:
+			size_hint_y: 0.3
+			font_size: 15
+			text: 'Shear limite'
+
+		BoxLayout:
+
+			size_hint_y: 0.3
+			orientation:"horizontal"
+              
+			TextInput:
+				id: shear_lim1
+				multiline: False              
+			TextInput:
+				id: shear_lim2
+				multiline: False              
+			TextInput:
+				id: shear_lim3
+				multiline: False              
+			TextInput:
+				id: shear_lim4
+				multiline: False              
+			TextInput:
+				id: shear_lim5
+				multiline: False              
+			TextInput:
+				id: shear_lim6
+				multiline: False              
+			TextInput:
+				id: shear_lim7
+				multiline: False              
+			TextInput:
+				id: shear_lim8
+				multiline: False              
+			TextInput:
+				id: shear_lim9
+				multiline: False
+		Image:
+			size_hint_y: 4
+			id: plane1
+			source: "img3.PNG"
+			size: self.texture_size
+		Label:
+			size_hint_y: 0.3
+			font_size: 15
+			text: 'bend à vide'
+
+		BoxLayout:
+
+			size_hint_y: 0.3
+			orientation:"horizontal"
+              
+			TextInput:
+				id: bending1
+				multiline: False              
+			TextInput:
+				id: bending2
+				multiline: False              
+			TextInput:
+				id: bending3
+				multiline: False              
+			TextInput:
+				id: bending4
+				multiline: False              
+			TextInput:
+				id: bending5
+				multiline: False              
+			TextInput:
+				id: bending6
+				multiline: False              
+			TextInput:
+				id: bending7
+				multiline: False              
+			TextInput:
+				id: bending8
+				multiline: False              
+			TextInput:
+				id: bending9
+				multiline: False
+
+
+		Label:
+			size_hint_y: 0.3
+			font_size: 15
+			text: 'bend limite'
+
+		BoxLayout:
+
+			size_hint_y: 0.3
+			orientation:"horizontal"
+              
+			TextInput:
+				id: bending_limit1
+				multiline: False              
+			TextInput:
+				id: bending_limit2
+				multiline: False              
+			TextInput:
+				id: bending_limit3
+				multiline: False              
+			TextInput:
+				id: bending_limit4
+				multiline: False              
+			TextInput:
+				id: bending_limit5
+				multiline: False              
+			TextInput:
+				id: bending_limit6
+				multiline: False              
+			TextInput:
+				id: bending_limit7
+				multiline: False              
+			TextInput:
+				id: bending_limit8
+				multiline: False              
+			TextInput:
+				id: bending_limit9
+				multiline: False
+<AvionLog>
+	BoxLayout:
+		orientation:"vertical"
+
+		Label:
+			size_hint_y: 0.5
+			font_size: 30
+			text: "Avions para"
+		
+		BoxLayout:
+			orientation:"horizontal"
+			size_hint_y: 0.2
+			Label:
+				markup:True
+				text:"[ref=choix]Choix poids PAX[/ref]"
+				on_ref_press: root.chkb_label("but_poids")
+			CheckBox:
+				id : but_poids
+				group:"but"
+
+			Spinner: 
+				id: poids_para
+				text: ""
+				values: ["vide","passenger 1","passenger 2","passenger 3","paratrooper 1","paratrooper 2","paratrooper 3"]
+				on_text: root.couleur(poids_para.text)
+			TextInput:
+				id: poids_para_txt
+				multiline: False
+			Button:
+				id:ref_color
+				font_size: 15
+				text: "Valider poids"
+				background_color: (0.5,0.5,0.5,0.5)
+				background_normal: ""
+				on_press:root.poids(poids_para_txt.text, poids_para.text)
+
+
+		BoxLayout:
+			orientation:"horizontal"
+			size_hint_y: 0.2
+			Label:
+				markup:True
+				text:"[ref=choix]choix largage[/ref]"
+				on_ref_press: root.chkb_label("but_largage")
+			CheckBox:
+				id : but_largage
+				group:"but"
+			Spinner: 
+				id: largage
+				text: "N"
+				values: ["N","1","2","3","4","5","6","7","8","9","10"]
+				on_text: root.couleur(poids_para.text)
+
+
+		GridLayout:
+			cols: 31
+			rows: 4
+#version log de l'A400
+
+
+            Button:
+                id:1
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("1")
+            Button:
+                id:2
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("2")
+            Button:
+                id:3
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+
+            Button:
+                id:4
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("4")
+            Button:
+                id:5
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("5")
+            Button:
+                id:6
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("6")
+            Button:
+                id:7
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("7")
+            Button:
+                id:8
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("8")
+            Button:
+                id:9
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("9")
+            Button:
+                id:10
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("10")
+            Button:
+                id:11
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("11")
+            Button:
+                id:12
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("12")
+            Button:
+                id:13
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("13")
+            Button:
+                id:14
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("14")
+            Button:
+                id:15
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("15")
+            Button:
+                id:16
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("16")
+            Button:
+                id:17
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("17")
+            Button:
+                id:18
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("18")
+            Button:
+                id:19
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("19")
+            Button:
+                id:20
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("20")
+            Button:
+                id:21
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("21")
+            Button:
+                id:22
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("22")
+            Button:
+                id:23
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("23")
+            Button:
+                id:24
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("24")
+            Button:
+                id:25
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("25")
+            Button:
+                id:26
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("26")
+            Button:
+                id:27
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("27")
+            Button:
+                id:28
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+
+            Button:
+                id:29
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+
+            Button:
+                id:30
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+
+            Button:
+                id:31
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+
+            Button:
+                id:32
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("32")
+            Button:
+                id:33
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("33")
+            Button:
+                id:34
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("34")
+            Button:
+                id:35
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("35")
+            Button:
+                id:36
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("36")
+            Button:
+                id:37
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("37")
+            Button:
+                id:38
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("38")
+            Button:
+                id:39
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("39")
+            Button:
+                id:40
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("40")
+            Button:
+                id:41
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("41")
+            Button:
+                id:42
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("42")
+            Button:
+                id:43
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("43")
+            Button:
+                id:44
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("44")
+            Button:
+                id:45
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("45")
+            Button:
+                id:46
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("46")
+            Button:
+                id:47
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("47")
+            Button:
+                id:48
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("48")
+            Button:
+                id:49
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("49")
+            Button:
+                id:50
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("50")
+            Button:
+                id:51
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("51")
+            Button:
+                id:52
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("52")
+            Button:
+                id:53
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("53")
+            Button:
+                id:54
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("54")
+            Button:
+                id:55
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("55")
+            Button:
+                id:56
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("56")
+            Button:
+                id:57
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("57")
+            Button:
+                id:58
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("58")
+            Button:
+                id:59
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("59")
+            Button:
+                id:60
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("60")
+            Button:
+                id:61
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("61")
+            Button:
+                id:62
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("62")
+            Button:
+                id:63
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("63")
+            Button:
+                id:64
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("64")
+            Button:
+                id:65
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("65")
+            Button:
+                id:66
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("66")
+            Button:
+                id:67
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("67")
+            Button:
+                id:68
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("68")
+            Button:
+                id:69
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("69")
+            Button:
+                id:70
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("70")
+            Button:
+                id:71
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("71")
+            Button:
+                id:72
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("72")
+            Button:
+                id:73
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("73")
+            Button:
+                id:74
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("74")
+            Button:
+                id:75
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("75")
+            Button:
+                id:76
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("76")
+            Button:
+                id:77
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("77")
+            Button:
+                id:78
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("78")
+            Button:
+                id:79
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("79")
+            Button:
+                id:80
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("80")
+            Button:
+                id:81
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("81")
+            Button:
+                id:82
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("82")
+            Button:
+                id:83
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("83")
+            Button:
+                id:84
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("84")
+            Button:
+                id:85
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("85")
+            Button:
+                id:86
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("86")
+            Button:
+                id:87
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("87")
+            Button:
+                id:88
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("88")
+            Button:
+                id:89
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("89")
+            Button:
+                id:90
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("90")
+            Button:
+                id:91
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("91")
+            Button:
+                id:92
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("92")
+            Button:
+                id:93
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("93")
+            Button:
+                id:94
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("94")
+            Button:
+                id:95
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("95")
+            Button:
+                id:96
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("96")
+            Button:
+                id:97
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("97")
+            Button:
+                id:98
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("98")
+            Button:
+                id:99
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("99")
+            Button:
+                id:100
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("100")
+            Button:
+                id:101
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("101")
+            Button:
+                id:102
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("102")
+            Button:
+                id:103
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("103")
+            Button:
+                id:104
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("104")
+            Button:
+                id:105
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("105")
+            Button:
+                id:106
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("106")
+            Button:
+                id:107
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("107")
+            Button:
+                id:108
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("108")
+            Button:
+                id:109
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("109")
+            Button:
+                id:110
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("110")
+            Button:
+                id:111
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("111")
+            Button:
+                id:112
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("112")
+            Button:
+                id:113
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("113")
+            Button:
+                id:114
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("114")
+            Button:
+                id:115
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("115")
+            Button:
+                id:116
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("116")
+            Button:
+                id:117
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("117")
+            Button:
+                id:118
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("118")
+            Button:
+                id:119
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("119")
+            Button:
+                id:120
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("120")
+            Button:
+                id:121
+                background_color: (0.95,0.95,0.95,0.95)
+                background_normal: ""
+                on_press:root.color("121")
+            Button:
+                id:122
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+            Button:
+                id:123
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+            Button:
+                id:124
+                background_color: (0.95,0.95,0.95,0)
+                background_normal: ""
+
+
+
+		Label:
+			font_size: 15
+			text: 'Résultats'
+
+		BoxLayout:
+			size_hint_y: 0.5
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'ZFW'
+			Label:
+				id:ZFW_res
+				font_size: 15
+				text: ''
+			Label:
+				font_size: 15
+				text: 'ZFW CG'
+			Label:
+				id:ZFWCG_res
+				font_size: 15
+				text: ''
+
+		BoxLayout:
+			size_hint_y: 0.5
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'Shearing limit'
+			Label:
+				id:shear_lim
+				font_size: 15
+				text: ''
+			Label:
+				font_size: 15
+				text: 'Bending limit'
+			Label:
+				id:bending_lim
+				font_size: 15
+				text: ''
+
+
+
+
+
+		BoxLayout:
+			size_hint_y: 0.2
+			orientation:"horizontal"
+			Button:
+				font_size: 15
+				text: "Retour"
+				on_press: root.manager.current = 'setup'
+			Button:
+				font_size: 15
+				text: "Valider"
+				on_press: root.valider()
+
+
+
+
+
+
+<Chargement>
+	BoxLayout:
+		orientation:"vertical"
+
+		Label:
+			font_size: 15
+			text: "Ajout d'une charge"
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'Poids (kg)'
+			TextInput:
+				id: poids
+				multiline: False
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'H-armes (m)'
+			TextInput:
+				id: h_armes
+				multiline: False
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'longueur (m)'
+			TextInput:
+				id: longueur
+				multiline: False
+
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'larguage'
+			Spinner: 
+				id: largage_mat
+				text: "non"
+				values: ["non","1","2","3"]
+
+		BoxLayout:
+			size_hint_y: 0.5
+			orientation:"horizontal"
+			Button:
+				font_size: 15
+				text: "supprimer le dernier"
+				on_press: root.supprimer()
+			Button:
+				font_size: 15
+				text: "ajout"
+				on_press: root.ajout(poids.text, h_armes.text, longueur.text,largage_mat.text)
+
+
+		ScrollView:
+			do_scroll_x: False
+			do_scroll_y: True
+			size_hint_y: 6
+
+			Label:
+				id: data_value
+				size_hint_y: None
+				height: self.texture_size[1]
+				text_size: self.width, None
+				font_size: 20
+				padding: 10, 10
+				text:""
+
+		BoxLayout:
+			size_hint_y: 0.5
+			orientation:"horizontal"
+			Button:
+				font_size: 15
+				text: "Retour"
+				on_press: root.manager.current = 'avion_log'
+			Button:
+				font_size: 15
+				text: "Valider"
+				on_press: root.manager.current = 'resultats'
+
+
+
+<Resultats>
+	BoxLayout:
+		orientation:"vertical"
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'ZFW'
+			Label:
+				id:ZFW_res
+				font_size: 15
+				text: ''
+			Label:
+				font_size: 15
+				text: 'ZFW CG'
+			Label:
+				id:ZFWCG_res
+				font_size: 15
+				text: ''
+
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'TOW'
+			Label:
+				id:TOW_res
+				font_size: 15
+				text: ''
+			Label:
+				font_size: 15
+				text: 'TOW CG'
+			Label:
+				id:TOWCG_res
+				font_size: 15
+				text: ''
+
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'LW'
+			Label:
+				id:LW_res
+				font_size: 15
+				text: ''
+			Label:
+				font_size: 15
+				text: 'LW CG'
+			Label:
+				id:LWCG_res
+				font_size: 15
+				text: ''
+
+		Button:
+			font_size: 15
+			text: "graph"
+			on_press: root.manager.current = 'resultats'
+
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'Shear'
+			Label:
+				id:shear_res
+				font_size: 15
+				text: ''
+			Button:
+				font_size: 15
+				text: "shear"
+				on_press: root.manager.current = 'resultats'
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				font_size: 15
+				text: 'Bending'
+			Label:
+				id:bending_res
+				font_size: 15
+				text: ''
+			Button:
+				font_size: 15
+				text: "bending"
+				on_press: root.manager.current = 'resultats'
+
+
+
+
+		BoxLayout:
+			size_hint_y: 0.5
+			orientation:"horizontal"
+			Button:
+				font_size: 15
+				text: "Retour"
+				on_press: root.manager.current = 'chargement'
+			Button:
+				font_size: 15
+				text: "Exporter PDF"
+				on_press: root.manager.current = 'resultats'
+
+
+
+
+

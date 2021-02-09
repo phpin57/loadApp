@@ -1,0 +1,28 @@
+              
+			TextInput:
+				id: bending_limit1
+				multiline: False              
+			TextInput:
+				id: bending_limit2
+				multiline: False              
+			TextInput:
+				id: bending_limit3
+				multiline: False              
+			TextInput:
+				id: bending_limit4
+				multiline: False              
+			TextInput:
+				id: bending_limit5
+				multiline: False              
+			TextInput:
+				id: bending_limit6
+				multiline: False              
+			TextInput:
+				id: bending_limit7
+				multiline: False              
+			TextInput:
+				id: bending_limit8
+				multiline: False              
+			TextInput:
+				id: bending_limit9
+				multiline: False
