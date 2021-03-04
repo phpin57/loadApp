@@ -1,7 +1,7 @@
 import os
 import inspect
-#dossier=os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
-#os.chdir(dossier)
+dossier=os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
+os.chdir(dossier)
 
 
 
