@@ -1,0 +1,11 @@
+save["LI"]="setup.ids["LI_mprs"].text
+save["fuel"]=setup.ids["fuel_mprs"].text
+save["conso"]=setup.ids["conso_mprs"].text
+save["vol"]=setup.ids["vol_mprs"].text
+save["APM"]=setup.ids["APMentry"].text
+save["APMCG"]=setup.ids["CGentry"].text
+save["type de vol"]=setup.ids["type_vol_entry"].text
+save["ShearLoadEntry"][i]=setup.ids["shear"+str(i+1)].text
+save["maximumShearLoadEntry"][i]=setup.ids["shear_lim"+str(i+1)].text
+save["BendingMomentEntry"][i]=setup.ids["bending"+str(i+1)].text
+save["maximumBendingMomentEntry"][i]=setup.ids["bending_limit"+str(i+1)].text
