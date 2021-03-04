@@ -2,6 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 
+import os
+import inspect
+
+dossier=os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
+os.chdir(dossier)
+
 class Graphique():
     def __init__(self):
         self.base()
